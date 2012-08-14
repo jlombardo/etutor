@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <title>Polling Demo</title>
+
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <meta name="description" content="Education site for Java learners" />
+            <meta name="keywords" content="Java, education, online learning" />
+
+            <h:outputStylesheet name="default.css" library="css" />
+            <h:outputStylesheet name="layout.css" library="css" />
+            <link rel="SHORTCUT ICON" href="/#{msg['server.context.root']}/favicon.ico"/>
+        </h:head>
+
+        <h:body>
+            <h:outputText style="font-size: x-large;" escape="false"
+                          value="Every 3 seconds the server will be polled&lt;br/&gt; for an updated count sent to the label below:"/>
+            <h:outputText value="&lt;br/&gt;&lt;br/&gt;" escape="false"/>
+            <h:form id="form">
+                <h:outputText id="txt_count" value="Count: #{counterBean.count}" />
+
+                <p:poll interval="3" 
+                        listener="#{counterBean.increment}" update="txt_count" />
+                <h:outputText value="&lt;br/&gt;&lt;br/&gt;" escape="false"/>
+                <p:commandLink value="&lt;&lt; Back Home" action="welcomePrimefaces"/>
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>
