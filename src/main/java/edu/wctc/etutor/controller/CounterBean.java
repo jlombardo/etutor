@@ -29,10 +29,11 @@ public class CounterBean implements Serializable{
 		count++;
 	}
         
-        public void incrementGauge() {
+        public void incrementGauges() {
             Random r = new Random(System.nanoTime());
             gaugeCount = r.nextInt(101);
             RequestContext requestContext = RequestContext.getCurrentInstance();
             requestContext.execute("gauge1.refresh(" + gaugeCount + ")");
+            requestContext.execute("gauge2.setValue(" + gaugeCount + ")");            
         }
 }

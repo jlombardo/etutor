@@ -17,7 +17,9 @@
             <h:outputStylesheet name="layout.css" library="css" />
             <h:outputScript library="js" name="raphael.2.1.0.min.js" /> 
             <h:outputScript library="js" name="justgage.1.0.1.min.js" /> 
+            <h:outputScript library="js" name="gauge.js" /> 
             <h:outputScript library="js" name="mygauges.js" /> 
+
             <link rel="SHORTCUT ICON" href="/#{msg['server.context.root']}/favicon.ico"/>
         </h:head>
 
@@ -27,9 +29,11 @@
             <h:outputText value="&lt;br/&gt;&lt;br/&gt;" escape="false"/>
             <h:form id="form">
                 <div id="gauge1"></div>
-
+                <canvas id="gauge2"></canvas>
+                <div id="console"></div>
+                
                 <p:poll interval="3" 
-                        listener="#{counterBean.incrementGauge()}" />
+                        listener="#{counterBean.incrementGauges()}" />
                 <h:outputText value="&lt;br/&gt;&lt;br/&gt;" escape="false"/>
                 <p:commandLink value="&lt;&lt; Back Home" action="welcomePrimefaces"/>
             </h:form>
