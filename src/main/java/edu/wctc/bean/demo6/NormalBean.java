@@ -1,5 +1,6 @@
 package edu.wctc.bean.demo6;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
@@ -10,7 +11,8 @@ import javax.faces.event.ActionEvent;
  */
 @ManagedBean(name="normal")
 @SessionScoped
-public class NormalBean{
+public class NormalBean implements Serializable {
+    private static final long serialVersionUID = 1L;
  
     public String buttonId; 
 

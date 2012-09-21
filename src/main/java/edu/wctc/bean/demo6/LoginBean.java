@@ -1,6 +1,7 @@
 package edu.wctc.bean.demo6;
 
 import java.io.IOException;
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
@@ -16,7 +17,8 @@ import javax.servlet.ServletResponse;
  */
 @ManagedBean
 @RequestScoped
-public class LoginBean {
+public class LoginBean implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String username = "";
     private String password = "";

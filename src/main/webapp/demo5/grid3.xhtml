@@ -32,10 +32,10 @@
         <h:form id="form3">
             <p:dataTable id="firstTable" 
                          value="#{simpleDataTableBean.plantCategories}" 
-                         var="cat" selectionMode="single"  rows="10"
-                         rowSelectListener="#{simpleDataTableBean.onRowSelect}"
-                         selection="#{simpleDataTableBean.categorySelected}"
-                         onRowSelectUpdate="matchTable">
+                         var="cat" selectionMode="single"  rows="10" rowKey="#{cat}}"
+                         selection="#{simpleDataTableBean.categorySelected}">
+                
+                <p:ajax event="rowSelect" listener="#{simpleDataTableBean.onRowSelect}" update=":form3:matchTable" />
                 
                 <f:facet name="header">
                     Plant Categories: Selection changes Plant List Below
