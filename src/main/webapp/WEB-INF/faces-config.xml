@@ -8,24 +8,31 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
     <application>
+        <!-- JSF-Spring Integration -->
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-        
+     
+        <!-- Provide translations to other languages using properties files -->
         <resource-bundle>
             <base-name>messages</base-name>
             <var>msg</var>
         </resource-bundle>
-        
+
         <locale-config>
             <default-locale>en</default-locale>
-            <supported-locale>es</supported-locale>
             <supported-locale>en</supported-locale>
+            <supported-locale>de</supported-locale>
         </locale-config>
 
     </application>
     
-    <!-- for spring security
+    <!-- for spring security -->
     <lifecycle>
-        <phase-listener>com.gbsvoice.util.LoginErrorPhaseListener</phase-listener>
+        <phase-listener>edu.wctc.bean.demo6.LoginErrorPhaseListener</phase-listener>
     </lifecycle>
- -->
+
+    <!-- turn on/off with comments for testing -->
+    <lifecycle>
+        <phase-listener>edu.wctc.bean.demo5.LogPhaseListener</phase-listener>
+    </lifecycle>
+    
 </faces-config>

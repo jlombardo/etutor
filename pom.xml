@@ -32,6 +32,7 @@
         <querydsl.version>2.7.0</querydsl.version>
         <querydsl.generated.src>target/generated-sources/java</querydsl.generated.src>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 
     <dependencies>
@@ -97,7 +98,13 @@
             <artifactId>spring-security-config</artifactId>
             <version>${spring-security.version}</version>
         </dependency>
-        
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>facelets-taglib-jsf20-spring-3</artifactId>
+            <version>0.5</version>
+        </dependency>
+                
         <!--
             Simplified Data Access Using Spring Data Repository Features
         -->
@@ -425,7 +432,14 @@
             <version>13.0</version>
         </dependency>
         
-        <!-- Useful utilities from Apache Commons
+        <!-- Useful utilities from Apache Commons -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        
+        <!--
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -447,6 +461,12 @@
             <id>springsource-repo</id>
             <name>SpringSource Repository</name>
             <url>http://repo.springsource.org/release</url>
+        </repository>
+        
+        <repository>
+            <id>org.springframework.security.taglibs.facelets</id>
+            <name>SpringSource Security Taglibs</name>
+            <url>http://spring-security-facelets-taglib.googlecode.com/svn/repo/</url>
         </repository>
     </repositories>
 
