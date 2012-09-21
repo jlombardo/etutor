@@ -12,7 +12,8 @@ import org.primefaces.context.RequestContext;
  */
 @ManagedBean
 @SessionScoped
-public class CounterBean implements Serializable{
+public class CounterBean implements Serializable {
+    private static final long serialVersionUID = 1L;
 
 	private int count;
         private int gaugeCount;

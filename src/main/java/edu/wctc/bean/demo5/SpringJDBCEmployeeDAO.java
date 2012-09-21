@@ -101,13 +101,14 @@ public class SpringJDBCEmployeeDAO implements IEmployeeDAO, Serializable {
                 sql.append("as bar ORDER BY ID ASC");
             }
         } else {
-            String orderDir = sortOrder.toString();
+            String orderDirTxt = sortOrder.toString(); 
+            String orderDir = orderDirTxt.startsWith("ASC") ? "ASC" : "DESC";
             sql.append("FROM EMPLOYEE ORDER BY ").append(sortField);
             if(dbVendor.equalsIgnoreCase("mssql")) {
                 sql.append(" ").append(orderDir);
                 sql.append(") as foo ORDER BY ");
                 sql.append(sortField).append(" ");
-                sql.append(sortOrder.toString());
+                sql.append(orderDir);
                 
             } else if(dbVendor.equalsIgnoreCase("mysql")) {
                 sql.append(" ").append(orderDir).append(" LIMIT ").append(pageSize);
