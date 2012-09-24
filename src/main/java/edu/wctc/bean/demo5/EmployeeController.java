@@ -65,6 +65,17 @@ public class EmployeeController implements Serializable {
             }
             
             @Override
+            public Employee getRowData(String rowKey) {
+                for(Employee emp : lazyModel) {
+                    if(emp.getId().equals(rowKey))
+                        return emp;
+                }
+
+                return null;
+            }
+
+            
+            @Override
             public Object getRowKey(Employee emp) {
                 return emp.getId();
             }

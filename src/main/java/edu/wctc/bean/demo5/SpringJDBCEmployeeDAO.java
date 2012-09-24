@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author jlombardo
  */
-@Repository
+@Repository("springJDBCEmployeeDAO")
 @Scope("singleton")
 public class SpringJDBCEmployeeDAO implements IEmployeeDAO, Serializable {
     private static final long serialVersionUID = 1L;

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 import org.primefaces.model.SortOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -21,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly=true)
 public class EmployeeService implements Serializable, IEmployeeService {
     private static final long serialVersionUID = 1L;
-    @Inject
+    @Autowired
     private IEmployeeDAO dao;
 
     public EmployeeService() {
@@ -64,13 +65,14 @@ public class EmployeeService implements Serializable, IEmployeeService {
     
 
     
-//    public static void main(String[] args) {
-//        AbstractApplicationContext ctx = 
-//                new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-//        EmployeeService srv = (EmployeeService)ctx.getBean("employeeService");
-//        List<Employee> list = srv.findAll();
-//        System.out.println(list);
-//    }
+    public static void main(String[] args) {
+        AbstractApplicationContext ctx = 
+                new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        EmployeeService srv = (EmployeeService)ctx.getBean("employeeService");
+        IEmployeeDAO dao = srv.getDao();
+        List<Employee> list = srv.findAll();
+        System.out.println(list);
+    }
 
     
     
