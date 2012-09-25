@@ -4,36 +4,50 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 /**
  *
  * @author jlombardo
  */
-@ManagedBean(name="normal")
+@ManagedBean(name = "normal")
 @SessionScoped
 public class NormalBean implements Serializable {
+
     private static final long serialVersionUID = 1L;
- 
-    public String buttonId; 
+    private String theValue = "Hello";
+    private boolean flag = false;
 
-    public void printIt(ActionEvent event){
-
-            //Get submit button id
-            buttonId = event.getComponent().getClientId();
-            buttonId = "From ActionListener event: " + buttonId;
+    public void processActionListener(ActionEvent ae) {
+        System.out.println("*** Processed actionListener *****");
+        //Get submit button id
+        theValue = theValue + " from actionListener";
     }
 
-    public String outcome(){
-            return "page2";
+    public void processValueChangeListener(ValueChangeEvent ve) {
+        System.out.println("*** Processed valueChangeListener *****");
+        theValue = flag + " from valueChangeListener";
     }
 
-    public String getButtonId() {
-        return buttonId;
+    public String processAction() {
+        System.out.println("*** Processed action *****");
+        theValue = theValue + " from action event";
+        return "page2";
     }
 
-    public void setButtonId(String buttonId) {
-        this.buttonId = buttonId;
+    public String getTheValue() {
+        return theValue;
     }
-    
-    
+
+    public void setTheValue(String theValue) {
+        this.theValue = theValue;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
 }

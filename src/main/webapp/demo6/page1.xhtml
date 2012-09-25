@@ -16,7 +16,7 @@
 
 
     <ui:define name="title">
-        Demo 6
+        #{msg.demo5_v2_page_title}
     </ui:define>
 
     <ui:define name="top">
@@ -27,18 +27,18 @@
         <h:outputText style="font-size: xx-large;" value="JSF 2 action vs. actionListener demo"/>
  
 	<h:form id="form">
- 
+          <h:inputText value="#{normal.theValue}"/>
 	  <h:commandButton id="submitButton" 
 		value="Test actionListener"
-		actionListener="#{normal.printIt}" />
+		actionListener="#{normal.processActionListener}" />
           
-	  <h:commandButton id="submitButton2" 
-		value="Test action" action="#{normal.outcome}" 
-		actionListener="#{normal.printIt}" /> 
+	  <h:commandButton id="submitButton2"
+		value="Test action" action="#{normal.processAction}" 
+		actionListener="#{normal.processActionListener}" /> 
         
-          <h:selectBooleanCheckbox valueChangeListener="#{normal.printIt}"/>
+          <h:selectBooleanCheckbox value="#{normal.flag}" valueChangeListener="#{normal.processValueChangeListener}"/>
 	</h:form>
-        <h:outputText value="#{normal.buttonId}"/>
+        <h:outputText id="myout" value="#{normal.theValue}"/>
     </ui:define>
 
     <ui:define name="bottom">
@@ -46,3 +46,4 @@
     </ui:define>
 
 </ui:composition>
+
