@@ -46,7 +46,7 @@
 
         <h:panelGrid id="pg" columns="1">
             <h:form>
-                 <p:dataTable id="empTable" var="emp" value="#{employeeController.lazyModel}"
+                 <p:dataTable id="empTable" var="emp" value="#{employeeController.lazyModel}" rowKey="emp.id"
                              paginator="true" paginatorPosition="bottom" rows="3" lazy="true"
                              selectionMode="single" selection="#{employeeController.selectedEmployee}"
                              paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}

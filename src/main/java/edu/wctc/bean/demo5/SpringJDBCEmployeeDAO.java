@@ -78,16 +78,13 @@ public class SpringJDBCEmployeeDAO implements IEmployeeDAO, Serializable {
         throws DataAccessException {
 
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT * FROM (");
+        sql.append("SELECT * FROM ");
         
         if(dbVendor.equalsIgnoreCase("mssql")) {
-            sql.append("SELECT TOP ").append(pageSize).append(" * FROM (");
+            sql.append("(SELECT TOP ").append(pageSize).append(" * FROM (");
             sql.append("SELECT TOP ").append(pageSize + firstRecord).append(" * ");
             
-        } else if(dbVendor.equalsIgnoreCase("mysql")) {
-            sql.append("SELECT").append(" * FROM (");
-            sql.append("SELECT").append(" * ");
-        }
+        } 
 
         if(sortField == null) {
             if(dbVendor.equalsIgnoreCase("mssql")) {
@@ -95,10 +92,9 @@ public class SpringJDBCEmployeeDAO implements IEmployeeDAO, Serializable {
                 sql.append("as bar ORDER BY ID ASC");
                 
             } else if(dbVendor.equalsIgnoreCase("mysql")) {
-                sql.append("FROM EMPLOYEE ORDER BY ID ASC LIMIT ");
-                sql.append(pageSize).append(") as foo ORDER BY ID DESC LIMIT ");
-                sql.append(pageSize + firstRecord).append(") ");
-                sql.append("as bar ORDER BY ID ASC");
+                sql.append("EMPLOYEE ORDER BY ID ASC LIMIT ");
+                sql.append(firstRecord).append(", ");
+                sql.append(pageSize);
             }
         } else {
             String orderDirTxt = sortOrder.toString(); 
@@ -123,7 +119,7 @@ public class SpringJDBCEmployeeDAO implements IEmployeeDAO, Serializable {
             sql.append(orderDir);
         }
         
-        //System.out.println("*** " + sql.toString());
+        System.out.println("*** " + sql.toString());
 
         empList.clear();
 

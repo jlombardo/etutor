@@ -97,9 +97,9 @@ public class EmployeeController implements Serializable {
     private List<Employee> getPage(List<Employee> empList, int firstRecord,
             int pageSize, String sortField, SortOrder sortOrder) {
 
-        if (!FacesContext.getCurrentInstance().getRenderResponse()) {
-            return null;
-	}
+//        if (!FacesContext.getCurrentInstance().getRenderResponse()) {
+//            return null;
+//	}
 
         return empService
                .findPage(empList, firstRecord, pageSize, sortField, sortOrder);

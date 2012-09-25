@@ -44,7 +44,7 @@
         <!-- Body -->
         <h:panelGrid columns="1" cellpadding="0">
             <h:outputText value="Welcome #{request.userPrincipal.name}" styleClass="bigHead" />
-            <h:outputText value="(Updated Dec. 20, 2011)" style="font-size:small;color:blue;" />
+            <h:outputText value="(Updated Sept. 25, 2012)" style="font-size:small;color:blue;" />
         </h:panelGrid>
         
         <p>This Netbeans project is designed for students and provides a variety of demonstrations of JSF 2.0
@@ -61,12 +61,12 @@
                 &lt;param-value&gt;true&lt;/param-value&gt;
             &lt;/context-param&gt;
         </pre>
-        <h3>PrimeFaces v2.2.1 JSF Components</h3>
-        <p>Many JSF components used in this version are from PrimeFaces v2.2.1.
+        <h3>PrimeFaces v3.3.1 JSF Components</h3>
+        <p>Many JSF components used in this version are from PrimeFaces v3.3.1.
             Other 3rd party libraries needed are the Spring core and security .jar files,
-            plus the the JDBC driver for MS-SQL Server.</p>
-        <p>This project has been tested only on Glassfish 3.1.1. 
-            which contains Mojarra 2.1.0.
+            plus the the JDBC driver for MySql Database Server.</p>
+        <p>This project has been tested only on Glassfish 3.1.2.2 
+            which contains Mojarra 2.1.6.
         </p>
 
         <h1>Demos available in this Project</h1>
@@ -107,6 +107,11 @@
                 This page demonstrates polling as in the previous demo, but adds graphical gauges
                 to display data. Server-side code in the CounterBean communicates to a JavaScript
                 callback method in the client side view code.</li>
+            <li style="margin-bottom: 10px;"><h:link value="Demo 7" outcome="/demo7/page1" />:
+                JSF Checkboxes to DataTable: This page demonstrates using standard JSF 2 checkboxes in a form and 
+                then saving those 
+                selections to a ManagedBean, and then navigating to a result page to display the
+                selections in a DataTable.</li>
         </ul>
         <hr/>
         <c:if test="#{sec:isAuthenticated()}">

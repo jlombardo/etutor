@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+    DEMO 7: standard JSF checkboxes to DataTable.
+
+    Reference documentation: 
+        - http://www.mkyong.com/jsf2/jsf-2-checkboxes-example/
+
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:p="http://primefaces.org/ui"
+                template="/mainTemplate.xhtml">
+
+
+    <ui:define name="title">
+        Demo 7 - Result Page
+    </ui:define>
+
+    <ui:define name="top">
+        <ui:include src="/top.xhtml"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:outputText style="font-size: xx-large;" value="Standard JSF 2 checkboxes to DataTable"/>
+ 
+	<h:form id="form">
+            <!--
+                Here's the result page that uses a standard JSF DataTable
+                component to display the selections in a grid. NOTE: in the
+                outputText column value where 'item' is referenced in an EL
+                expression, item is a variable that points to an object in
+                a collection ('checkSelections'). Normally that object 
+                would have properties as in 'emp.lastName', but since this
+                item is a String, no property reference is needed.
+            -->
+            <h:dataTable value="#{checkBean.checkedSelections}" var="item"
+                         rows="10"  rowClasses="list-row-odd, list-row-even" 
+                         width="60%">
+            
+                <f:facet name="header">
+                    Standard JSF dataTable with optional row styling
+                </f:facet>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Selected Checkbox Value" />
+                    </f:facet>
+                    <h:outputText value="#{item}" />
+                </h:column>
+                
+            </h:dataTable>
+            
+	  <h:commandButton id="submitButton2" 
+		value="Submit and Navigate back to form" action="page1" /> 
+       
+	</h:form>
+
+    </ui:define>
+
+    <ui:define name="bottom">
+        <ui:include src="/bottom.xhtml"/>
+    </ui:define>
+
+</ui:composition>

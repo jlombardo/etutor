@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+    DEMO 7: standard JSF checkboxes to DataTable.
+
+    Reference documentation: 
+        - http://www.mkyong.com/jsf2/jsf-2-checkboxes-example/
+
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:p="http://primefaces.org/ui"
+                template="/mainTemplate.xhtml">
+
+
+    <ui:define name="title">
+        Demo 7
+    </ui:define>
+
+    <ui:define name="top">
+        <ui:include src="/top.xhtml"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:outputText style="font-size: xx-large;" value="Standard JSF 2 checkboxes to DataTable"/>
+ 
+	<h:form id="form">
+            <!--
+                For each itemLabel you may use any value you choose, the
+                same as the label, or something else, as long as the value
+                is unique for each label. All values are sent to the 
+                ManagedBean as Strings.
+            -->
+            <h:selectManyCheckbox value="#{checkBean.checkedSelections}" layout="pageDirection">
+                    <f:selectItem itemValue="iPhone 5" itemLabel="iPhone 5" />
+                    <f:selectItem itemValue="Car Charger" itemLabel="Car Charger" />
+                    <f:selectItem itemValue="Protective Case" itemLabel="Protective Case" />
+                    <f:selectItem itemValue="2 GB Data Plan" itemLabel="2 GB Data Plan" />
+                    <f:selectItem itemValue="4 GB Data Plan" itemLabel="4 GB Data Plan" />
+                    <f:selectItem itemValue="2-Year Maintenance" itemLabel="2-Year Maintenance" />
+            </h:selectManyCheckbox>   
+            
+	  <h:commandButton id="submitButton2" 
+		value="Submit and Navigate to DataTable" action="#{checkBean.saveSelections}" /> 
+       
+	</h:form>
+
+    </ui:define>
+
+    <ui:define name="bottom">
+        <ui:include src="/bottom.xhtml"/>
+    </ui:define>
+
+</ui:composition>
