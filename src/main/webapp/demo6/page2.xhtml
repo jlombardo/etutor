@@ -24,9 +24,10 @@
     </ui:define>
 
     <ui:define name="content">
-       <h:outputText value="#{normal.theValue}"/><br/>
-       <h:outputText value="#{normal.flag}"/>
- 
+        <h:panelGrid columns="1">
+            <h:outputText value="#{normal.theValue}"/>
+            <h:outputText value="#{normal.flag}"/>
+        </h:panelGrid>
     </ui:define>
 
     <ui:define name="bottom">
