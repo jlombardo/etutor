@@ -503,9 +503,11 @@
                             <resources>          
                                 <resource>
                                     <directory>src/main/etutor-app</directory>
-                                    <filtering>true</filtering>
+                                    <!-- overwrite is ignored if filtering is turned on! -->
+                                    <filtering>false</filtering>
                                 </resource>
-                            </resources>              
+                            </resources>
+                            <overwrite>false</overwrite>
                         </configuration>            
                     </execution>
                 </executions>
