@@ -490,6 +490,27 @@
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${file.separator}etutor-app</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/etutor-app</directory>
+                                    <!-- overwrite is ignored if filtering is turned on! -->
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                            <overwrite>false</overwrite>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             
             <plugin>
