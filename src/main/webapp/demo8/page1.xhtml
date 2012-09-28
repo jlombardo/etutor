@@ -1,61 +1,50 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <!--
-    DEMO 7: standard JSF checkboxes to DataTable.
-
-    Reference documentation: 
-        - http://www.mkyong.com/jsf2/jsf-2-checkboxes-example/
-
+    DEMO 2:
+    This demo is the same as the first, except that it uses a Managed Bean that
+    specifies SessionScoped, which means that it will remember data over
+    several requests for a given user. In this demo, the data remembered is
+    the count of user inputs.
 -->
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-                xmlns:p="http://primefaces.org/ui"
-                template="/mainTemplate.xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:cc="http://java.sun.com/jsf/composite">
 
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <ui:define name="title">
-        Demo 8
-    </ui:define>
-
-    <ui:define name="top">
-        <ui:include src="/top.xhtml"/>
-    </ui:define>
-
-    <ui:define name="content">
-    	<script type="text/javascript">
-
-		function setUpTangle () {
-
-			var element = document.getElementById("example");
-
-			var tangle = new Tangle(element, {
-				initialize: function () {
-					this.cookies = 4;
-					this.caloriesPerCookie = 50;
-				},
-				update: function () {
-					this.calories = this.cookies * this.caloriesPerCookie;
-				}
-			});
-		}
-
-	</script>
+        <h:outputScript library="js" name="Tangle.js" />
+        <h:outputStylesheet library="css" name="TangleKit.css" />
+        <h:outputScript library="js" name="mootools.js" />
+        <h:outputScript library="js" name="sprintf.js" />
+        <h:outputScript library="js" name="BVTouchable.js" />
+        <h:outputScript library="js" name="TangleKit.js" />
+        <h:outputScript library="js" name="CookieExample.js" />
         
-<p>This is a simple reactive document.</p>
+        <link rel="SHORTCUT ICON" href="/etutor/favicon.ico"/>
+        <title>Tangle JavaScript Demo</title>
 
-	<p id="example">
-		When you eat <span data-var="cookies" class="TKAdjustableNumber" data-min="2" data-max="100"> cookies</span>, you
-		will consume <span data-var="calories"></span> calories.
-	</p>    
-        
+    </h:head>
 
-    </ui:define>
+    <h:body>
 
-    <ui:define name="bottom">
-        <ui:include src="/bottom.xhtml"/>
-    </ui:define>
 
-</ui:composition>
+        <p>This is a simple reactive document.</p>
+
+        <div id="cookieExample">
+
+        <p>When you eat <span data-var="cookies" class="TKAdjustableNumber" data-min="2" data-max="100"> cookies</span>
+            , you consume <b data-var="calories"> calories</b>.  That's <b data-var="dailyPercent" data-format="%.0f">%</b> of your recommended daily calories.</p>
+    </div>
+
+
+    </h:body>
+
+</html>
+
