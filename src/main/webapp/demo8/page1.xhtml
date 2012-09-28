@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+    DEMO 7: standard JSF checkboxes to DataTable.
+
+    Reference documentation: 
+        - http://www.mkyong.com/jsf2/jsf-2-checkboxes-example/
+
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+                xmlns:p="http://primefaces.org/ui"
+                template="/mainTemplate.xhtml">
+
+
+    <ui:define name="title">
+        Demo 8
+    </ui:define>
+
+    <ui:define name="top">
+        <ui:include src="/top.xhtml"/>
+    </ui:define>
+
+    <ui:define name="content">
+    	<script type="text/javascript">
+
+		function setUpTangle () {
+
+			var element = document.getElementById("example");
+
+			var tangle = new Tangle(element, {
+				initialize: function () {
+					this.cookies = 4;
+					this.caloriesPerCookie = 50;
+				},
+				update: function () {
+					this.calories = this.cookies * this.caloriesPerCookie;
+				}
+			});
+		}
+
+	</script>
+        
+<p>This is a simple reactive document.</p>
+
+	<p id="example">
+		When you eat <span data-var="cookies" class="TKAdjustableNumber" data-min="2" data-max="100"> cookies</span>, you
+		will consume <span data-var="calories"></span> calories.
+	</p>    
+        
+
+    </ui:define>
+
+    <ui:define name="bottom">
+        <ui:include src="/bottom.xhtml"/>
+    </ui:define>
+
+</ui:composition>
