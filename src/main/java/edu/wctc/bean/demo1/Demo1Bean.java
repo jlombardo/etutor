@@ -5,11 +5,6 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-// Example of a CDI version of a class. Do not use here!
-//import javax.annotation.ManagedBean;
-
-
-
 /**
  *
  * @author jlombardo
