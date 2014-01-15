@@ -24,7 +24,7 @@
         <meta name="Description" content="A basic JSF v2 home page without a template"/>
         <meta name="Robots" content="index,follow"/>
 
-        <title>Simple JSF v2 Page, No Template</title>
+        <title>Simple JSF v2.1 Page, No Template</title>
 
         <h:outputStylesheet name="default.css" library="css" />
         <h:outputStylesheet name="cssLayout.css" library="css" />
@@ -44,10 +44,10 @@
         <!-- Body -->
         <h:panelGrid columns="1" cellpadding="0">
             <h:outputText value="Welcome #{request.userPrincipal.name}" styleClass="bigHead" />
-            <h:outputText value="(Updated Sept. 25, 2012)" style="font-size:small;color:blue;" />
+            <h:outputText value="(Updated Wed., January 25, 2014)" style="font-size:small;color:blue;" />
         </h:panelGrid>
         
-        <p>This Netbeans project is designed for students and provides a variety of demonstrations of JSF 2.0
+        <p>This Netbeans project is designed for students and provides a variety of demonstrations of JSF 2.1
         and facelets programming techniques, using both JSF Managed Beans and
         CDI implementations, plus Spring Framework core and security services.</p>
         <h3>Supporting HTML Comments</h3>
@@ -61,14 +61,13 @@
                 &lt;param-value&gt;true&lt;/param-value&gt;
             &lt;/context-param&gt;
         </pre>
-        <h3>PrimeFaces v3.3.1 JSF Components</h3>
-        <p>Many JSF components used in this version are from PrimeFaces v3.3.1., which is not the current version. 
+        <h3>PrimeFaces v4.0 JSF Components</h3>
+        <p>Many JSF components used in this version are from PrimeFaces v4.0., which is the current version. 
             PrimeFaces provides a migration guide at (<a href="http://code.google.com/p/primefaces/wiki/MigrationGuide">Primefaces Migration Guide</a>) 
-            should you want to use the latest components.
-            Other, older 3rd party libraries needed are the Spring core and security .jar files,
+            should you want to upgrade.
+            Other 3rd party libraries needed are the Spring core and security .jar files,
             plus the the JDBC driver for MySql Database Server.</p>
-        <p>This project has been tested only on Glassfish 3.1.2.2 
-            which contains Mojarra 2.1.6.
+        <p>This project has been tested only on Glassfish 4.0
         </p>
 
         <h1>Demos available in this Project</h1>
