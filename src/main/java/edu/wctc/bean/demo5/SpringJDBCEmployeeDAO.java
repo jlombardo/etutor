@@ -152,8 +152,8 @@ public class SpringJDBCEmployeeDAO implements IEmployeeDAO, Serializable {
 
     @Override
     public int getTotalRecordCount(String table) {
-        long num = jdbcTemplate.queryForLong("SELECT COUNT(*) AS NumEmployee FROM EMPLOYEE");
-        return (int)num;
+        int num = jdbcTemplate.queryForObject("SELECT COUNT(*) AS NumEmployee FROM EMPLOYEE", Integer.class);
+        return num;
     }
     
     public static void main(String[] args) {
